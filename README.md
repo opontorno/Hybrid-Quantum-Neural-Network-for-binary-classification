@@ -52,7 +52,7 @@ where $\theta$ represents the parameters of the quantum circuit and $s$ is a mac
 
 ## Model-building phase
 
-Readers are invited to read the jupyter [notebook](Classical-Quantum Neural Network for binary classification.ipynb) containing the details of the entire building phase.
+Readers are invited to read the jupyter [notebook](Classical-Quantum\ Neural\ Network\ for\ binary\ classification.ipynb) containing the details of the entire building phase.
 As a first step, *exploratory data analysis* (EDA) and *preprocessing* of the images contained in the dataset were carried out. As can be seen, not all the images contained in the original dataset on the *kaggle* site were used, but only a portion of them: specifically, 300 images were taken for each class. From this it follows that the dataset used turns out to be balanced with respect to the classes.
 ![](pictures/class_distribution.png)
 

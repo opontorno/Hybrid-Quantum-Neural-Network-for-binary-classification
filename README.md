@@ -2,6 +2,8 @@
 
 The purpose of this project is to investigate the structure of a hybrid neural network. To do this, I made use of the *qiskit* library, which allows useful tools for constructing a classical-quantum neural network.
 
+The dataset used to build the network is available from the following [link](https://www.kaggle.com/datasets/utkarshsaxenadn/car-vs-bike-classification-dataset).
+
 ## What is quantum computing?
 
 Quantum computing is a type of computing that uses quantum mechanical phenomena, such as superposition and entanglement, to perform operations on data. Instead of using classical bits that can only be in a state of 0 or 1, quantum computing uses quantum bits (qubits) that can be in multiple states at once. This allows quantum computers to process certain types of problems exponentially faster than classical computers.
@@ -30,13 +32,11 @@ Another advantage of QNNs is their potential for exponential speedup in certain 
 
 In this project, we're looking at how we can combine classical and quantum computing to create a new type of neural network. Specifically, we'll partially convert a classical neural network to a quantum neural network to create a hybrid quantum-classical neural network. We'll use two popular software packages - **Qiskit** and **PyTorch** - to create a simple example that shows how to integrate quantum computing with existing machine learning tools. Our goal is to demonstrate how easy it is to use Qiskit with existing ML tools and to inspire machine learning practitioners to explore the possibilities of quantum computing.
 
-[](pictures/QNNs_qiskit.png)
-
-![qiskit](pictures/QNNs_qiskit.png)
+![](pictures/QNNs_qiskit.png)
 
 To combine quantum and classical neural networks, we can add a hidden layer to our neural network that uses a special type of quantum circuit called a "parameterized quantum circuit". This circuit uses a classical input vector to set the rotation angles of the quantum gates. The output from the previous layer of our neural network is sent to this parameterized circuit as input. We collect the measurement statistics from the quantum circuit, and use them as inputs for the next layer of our neural network. This process is repeated until we reach the final output layer. This can be illustrated with a simple example:
 
-[](picture/structure_qiskit.png)
+![](picture/structure_qiskit.png)
 
 Here, $\sigma$ is a nonlinear functionand hi is the value of neuron i at each hidden layer. $R(h_i)$ represents any rotation gate about an angle equal to $h_i$ and $y$ is the final prediction value generated from the hybrid network.
 
@@ -49,6 +49,36 @@ $$
 $$
 
 where $\theta$ represents the parameters of the quantum circuit and $s$ is a macroscopic shift. The gradient is then simply the difference between our quantum circuit evaluated at $\theta+s$ and $\theta−s$. Thus, we can systematically differentiate our quantum circuit as part of a larger backpropagation routine.
+
+## Model-building phase
+
+Readers are invited to read the jupyter [notebook](Classical-Quantum Neural Network for binary classification.ipynb) containing the details of the entire building phase.
+As a first step, *exploratory data analysis* (EDA) and *preprocessing* of the images contained in the dataset were carried out. As can be seen, not all the images contained in the original dataset on the *kaggle* site were used, but only a portion of them: specifically, 300 images were taken for each class. From this it follows that the dataset used turns out to be balanced with respect to the classes.
+![](pictures/class_distribution.png)
+
+The quantum neural network consists of a sequence of 11 layers:
+![](pictures/summary.png)
+
+At this point, we moved on to the network training phase using the following hyperparameters:
+
+- a number of *epoches* equal to $30$.
+- a *batch_size* equal to $1$.
+- an initial learning rate equal to $0.00001$.
+- a *$L_2$ regularization factor* equal to $0.001$.
+
+All using the optimizer the *Adam* and as a loss function the *Negative Log-Likelihood*.
+
+The image of the loss curves of training and validation is presented below.
+
+![](pictures/loss_curves.png)
+
+As can be seen from the graphs, the loss curves have maintained an optimal trend without leaving the suspicion of any possible underfitting and overfitting error. A final value of *NLL* of $-0.83$ for the training set and $-0.79$ for the validation set was reached.
+
+## Results
+
+The good results obtained in the training phase of the model were repeated in the testing phase; in fact, by testing the model on the images of the test set, we were able to obtain a value of *NLL* equal to $-0.78$ and a value of *accuracy* equal to $86.7\%$.
+Some predictions on images from the test set are given below.
+![](pictures/results.png)
 
 ## References
 

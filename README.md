@@ -36,7 +36,7 @@ In this project, we're looking at how we can combine classical and quantum compu
 
 To combine quantum and classical neural networks, we can add a hidden layer to our neural network that uses a special type of quantum circuit called a "parameterized quantum circuit". This circuit uses a classical input vector to set the rotation angles of the quantum gates. The output from the previous layer of our neural network is sent to this parameterized circuit as input. We collect the measurement statistics from the quantum circuit, and use them as inputs for the next layer of our neural network. This process is repeated until we reach the final output layer. This can be illustrated with a simple example:
 
-![](picture/structure_qiskit.png)
+![](pictures/structure_qiskit.png)
 
 Here, $\sigma$ is a nonlinear functionand hi is the value of neuron i at each hidden layer. $R(h_i)$ represents any rotation gate about an angle equal to $h_i$ and $y$ is the final prediction value generated from the hybrid network.
 
@@ -52,7 +52,7 @@ where $\theta$ represents the parameters of the quantum circuit and $s$ is a mac
 
 ## Model-building phase
 
-Readers are invited to read the jupyter [notebook](Classical-Quantum\ Neural\ Network\ for\ binary\ classification.ipynb) containing the details of the entire building phase.
+Readers are invited to read the jupyter [notebook](https://github.com/opon13/Hybrid-Quantum-Neural-Network-for-binary-classification/blob/main/Classical-Quantum%20Neural%20Network%20for%20binary%20classification.ipynb) containing the details of the entire building phase.
 As a first step, *exploratory data analysis* (EDA) and *preprocessing* of the images contained in the dataset were carried out. As can be seen, not all the images contained in the original dataset on the *kaggle* site were used, but only a portion of them: specifically, 300 images were taken for each class. From this it follows that the dataset used turns out to be balanced with respect to the classes.
 ![](pictures/class_distribution.png)
 

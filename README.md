@@ -64,7 +64,7 @@ At this point, we moved on to the network training phase using the following hyp
 - a number of *epoches* equal to $30$.
 - a *batch_size* equal to $1$.
 - an initial learning rate equal to $0.00001$.
-- a *$L_2$ regularization factor* equal to $0.001$.
+- a $L_2$ *regularization factor* equal to $0.001$.
 
 All using the optimizer the *Adam* and as a loss function the *Negative Log-Likelihood*.
 

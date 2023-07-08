@@ -56,17 +56,16 @@ Readers are invited to read the jupyter [notebook](https://github.com/opon13/Hyb
 As a first step, *exploratory data analysis* (EDA) and *preprocessing* of the images contained in the dataset were carried out. As can be seen, not all the images contained in the original dataset on the *kaggle* site were used, but only a portion of them: specifically, 300 images were taken for each class. From this it follows that the dataset used turns out to be balanced with respect to the classes.
 ![](pictures/class_distribution.png)
 
-The quantum neural network consists of a sequence of 11 layers:
+Our hibrid neural network is a typical Convolutional Neural Network with two fully-connected layers at the end.The value of the last neuron of the fully-connected layer is fed as the parameter $\theta$ into our quantum circuit. The circuit measurement then serves as the final prediction for 0 or 1 as provided by a $\sigma_z$ measurement.
+
 ![](pictures/summary.png)
 
-At this point, we moved on to the network training phase using the following hyperparameters:
+For network training, we used the loss function _Negative Log-Likelihood_ and the optimiser _Adam_. All this using the following hyperparameters:
 
-- a number of *epoches* equal to $30$.
-- a *batch_size* equal to $1$.
-- an initial learning rate equal to $0.00001$.
-- a $L_2$ *regularization factor* equal to $0.001$.
-
-All using the optimizer the *Adam* and as a loss function the *Negative Log-Likelihood*.
+- _Epochs_: $30$.
+- *batch size*: $1$.
+- _Learning rate_: $10^{-5}$.
+- _weights decay_: $10^{-3}$.
 
 The image of the loss curves of training and validation is presented below.
 
@@ -82,6 +81,6 @@ Some predictions on images from the test set are given below.
 
 ## References
 
-- [Hybrid quantum-classical Neural Networks with PyTorch and Qiskit](https://qiskit.org/textbook/ch-machine-learning/machine-learning-qiskit-pytorch.html)
+- [qiskit.org]([https://qiskit.org/textbook/ch-machine-learning/machine-learning-qiskit-pytorch.html](https://learn.qiskit.org/course/ch-applications/hybrid-quantum-classical-neural-networks-with-pytorch-and-qiskit))
 
 - [Quantum Machine Learning: A tutorial](https://idus.us.es/bitstream/handle/11441/128549/1-s2.0-S0925231221011000-main.pdf?sequence=1&isAllowed=y)
